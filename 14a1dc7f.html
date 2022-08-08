@@ -1,0 +1,760 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  
+  <title>华为100机考题 | 琬琰无筝</title>
+  <meta name="author" content="陆景扬">
+  
+  <meta name="description" content="0.1">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="华为100机考题"/>
+  <meta property="og:site_name" content="琬琰无筝"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link rel="shortcut icon" href="/favicon.png">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <!--[if lt IE 9]><script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
+  
+
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+
+<body>
+  <header id="header" class="inner"><div class="aligncenter">
+
+<nav id="main-nav" class="aligncenter">
+  <h1><a href="/">琬琰无筝</a></h1>
+  
+  <nav id="main-nav" class="aligncenter">
+  <h4><a href="/">我是陆景扬，做一个品评人</a></h4>
+
+<!-- 修改副标题居中 -->
+<nav id="main-nav" class="aligncenter">
+  <ul>
+    
+      <li><a href="/about/lixue">理学</a></li>
+    
+      <li><a href="/about/science">科学</a></li>
+    
+      <li><a href="/about/mylove">爱好</a></li>
+    
+      <li><a href="/about">关于</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article
+id="post-机考108题"
+class="h-entry post"
+>
+
+
+
+ 
+  <div class="post-content">
+
+
+<header>
+
+
+
+    
+        
+    <!--    显示图标
+
+            <div class="icon"></div>
+            
+    -->
+                                                 
+
+     
+     
+     
+    <!--    题目显示    -->
+
+          
+  
+    <h1 class="p-name title" itemprop="headline name">华为100机考题</h1>
+  
+
+
+          
+    <!--    题目显示    -->
+
+</header>
+    
+    
+    <!--    文章显示    -->
+        <div class="e-content entry" itemprop="articleBody">
+              
+                <p>程序</p>
+<span id="more"></span>
+
+<h3 id="4-字符串分隔"><a href="#4-字符串分隔" class="headerlink" title="4.字符串分隔"></a>4.字符串分隔</h3><blockquote>
+<p>输入一个字符串，请按长度为8拆分每个输入字符串并进行输出；长度不是8整数倍的字符串请在后面补数字0，空字符串不处理。</p>
+</blockquote>
+<pre><code>while True:
+      try:
+        temp = input()
+        while(len(temp)&gt;0):
+            print(temp[:8].ljust(8,&quot;0&quot;))
+          temp = temp[8:]
+      except:
+    break
+</code></pre>
+<h3 id="5-进制转换（16——-gt-10）"><a href="#5-进制转换（16——-gt-10）" class="headerlink" title="5.进制转换（16——&gt;10）"></a>5.进制转换（16——&gt;10）</h3><pre><code>while True:
+    try:
+        s=input()
+        print(int(s,16))
+    except:
+        break
+</code></pre>
+<h3 id="6-求质数"><a href="#6-求质数" class="headerlink" title="6.求质数"></a>6.求质数</h3><blockquote>
+<p>功能:输入一个正整数，按照从小到大的顺序输出它的所有质因子（重复的也要列举）（如180的质因子为2 2 3 3 5 ）</p>
+</blockquote>
+<pre><code>#解法一
+num = int(input())
+for i in range(2,int(num**0.5)+1):
+    while num%i==0:
+        print(i,end=&#39; &#39;)
+        num = int(num/i)
+if num&gt;2:
+    print(num)
+</code></pre>
+<pre><code>#解法二
+import math
+n = int(input())
+for i in range(2, int(math.sqrt(n))+1):
+    while n % i == 0:
+        print(i, end=&#39; &#39;)
+        n = n // i               #//为取整除
+if n &gt;= 2:
+    print(n)
+</code></pre>
+<h3 id="7-取近似值"><a href="#7-取近似值" class="headerlink" title="7.取近似值"></a>7.取近似值</h3><blockquote>
+<p>写出一个程序，接受一个正浮点数值，输出该数值的近似整数值。如果小数点后数值大于等于 0.5 ,向上取整；小于 0.5 ，则向下取整。数据范围：保证输入的数字在 32 位浮点数范围内</p>
+</blockquote>
+<pre><code>#解法一
+from math import ceil,floor
+def ceilNumber(n):
+    a = ceil(n)-n
+    if (a&lt;=0.5):
+        return ceil(n)
+    return floor(n)
+b = float(input())
+print(ceilNumber(b))
+</code></pre>
+<pre><code>#解法二
+def ceilNumber(n):
+    a = int(n+0.5)
+    return a
+b = float(input())
+print(ceilNumber(b))
+</code></pre>
+<pre><code>#解法三
+n = float(input())
+y = lambda x : int(x+0.5)
+print(y(n))
+</code></pre>
+<h3 id="8-合并表记录"><a href="#8-合并表记录" class="headerlink" title="8.合并表记录"></a>8.合并表记录</h3><blockquote>
+<p>数据表记录包含表索引index和数值value（int范围的正整数），请对表索引相同的记录进行合并，即将相同索引的数值进行求和运算，输出按照index值升序进行输出。<br>提示:</p>
+</blockquote>
+<pre><code>0 &lt;= index &lt;= 11111111，		1 &lt;= value &lt;= 100000
+</code></pre>
+<blockquote>
+<p> <strong>输入描述：</strong><br> 先输入键值对的个数n（1 &lt;&#x3D; n &lt;&#x3D; 500）<br> 接下来n行每行输入成对的index和value值，以空格隔开0)<br> <strong>输出描述：</strong><br> 输出合并后的键值对（多行）</p>
+</blockquote>
+<pre><code>n = int(input())
+dic = &#123;&#125;
+
+# idea: 动态建构字典
+for i in range(n):
+    line = input().split()
+    key = int(line[0])	#当前记录的索引值
+    value = int(line[1])	#当前记录的数值
+    dic[key] = dic.get(key, 0) + value  # 累积key所对应的value
+
+for each in sorted(dic):  # 最后的键值对按照升值排序
+    print(each, dic[each])
+    
+</code></pre>
+<h3 id="9-提取不重复的整数"><a href="#9-提取不重复的整数" class="headerlink" title="9.提取不重复的整数"></a>9.提取不重复的整数</h3><blockquote>
+<p>输入一个 int 型整数，按照从右向左的阅读顺序，返回一个不含重复数字的新的整数。保证输入的整数最后一位不是 0 。</p>
+</blockquote>
+<pre><code>#解法一
+x = input()
+# 将数倒序
+x = x[::-1]
+num = []
+# 遍历数据符合条件则输出
+# 思路：将输出的数据添加到1个列表中，用来判重
+for i in x:
+    if i in num:
+        continue
+    else:
+        num.append(i)
+        print(i,end=&quot;&quot;)
+        
+</code></pre>
+<pre><code>#解法二
+new_list = []
+data = list(input())[::-1]
+if int(data[0]) != 0:
+    for i in data:
+        if i not in new_list:
+            new_list.append(i)
+print(&#39;&#39;.join(new_list))
+</code></pre>
+<h3 id="10-字符统计"><a href="#10-字符统计" class="headerlink" title="10.字符统计"></a>10.字符统计</h3><blockquote>
+<p>编写一个函数，计算字符串中含有的不同字符的个数。字符在 ASCII 码范围内( 0~127 ，包括 0 和 127 )，换行表示结束符，不算在字符里。不在范围内的不作统计。多个相同的字符只计算一次。</p>
+</blockquote>
+<blockquote>
+<p> <strong>输入描述：</strong><br> 输入一行没有空格的字符串<br> <strong>输出描述：</strong><br> 输出 输入字符串 中范围在(0~127，包括0和127)字符的种数</p>
+</blockquote>
+<pre><code>例如，对于字符串 abaca 而言，有 a、b、c 三种不同的字符，因此输出3
+</code></pre>
+<pre><code>def count_character(str):
+    string = &#39;&#39;.join(set(str))  # 去重后以字符串的形式
+    count = 0                   # 开始计数
+    for item in string:
+        if 0 &lt;= ord(item) &lt;= 127: # ASCII码范围要求
+            count += 1         # 计数
+    return count 
+
+str = input()
+print(count_character(str))
+</code></pre>
+<h3 id="11-数字颠倒"><a href="#11-数字颠倒" class="headerlink" title="11.数字颠倒"></a>11.数字颠倒</h3><blockquote>
+<p>输入一个整数，将这个整数以字符串的形式逆序输出。程序不考虑负数的情况，若数字含有0，则逆序形式也含有0，如输入为100，则输出为001</p>
+</blockquote>
+<pre><code>nums = str(input())  #int-to-string
+i = len(nums)-1
+ans = []
+while i &gt;= 0:
+    ans.append(nums[i])
+    i -= 1
+
+rev = &#39;&#39;.join(ans)  #array-to-string
+print(rev)
+</code></pre>
+<h3 id="12-字符串反转"><a href="#12-字符串反转" class="headerlink" title="12.字符串反转"></a>12.字符串反转</h3><blockquote>
+<p>接受一个只包含小写字母的字符串，然后输出该字符串反转后的字符串</p>
+</blockquote>
+<pre><code>#解法一
+s=str(input()).lower()
+print(s[::-1])
+
+#解法二
+print((&#39;&#39;.join(reversed(input()))).lower())
+</code></pre>
+<h3 id="13-句子逆序"><a href="#13-句子逆序" class="headerlink" title="13.句子逆序"></a>13.句子逆序</h3><blockquote>
+<p>一个英文语句以单词为单位逆序排放。例如“I am a boy”，逆序排放后为“boy a am I”。所有单词之间用一个空格隔开，语句中除了英文字母外，不再包含其他字符</p>
+</blockquote>
+<pre><code>#解法一
+s=input().split()  #接收输入内容
+s1=s[::-1]  #把输入内容倒序排列
+for x in s1:
+    print(x,end=&quot; &quot;)  #输出元素之间用空格分隔
+    
+</code></pre>
+<pre><code>#解法二
+while True:
+    try:
+        string = list(input().split())
+        print(&#39; &#39;.join(string[::-1]))
+    except:
+        break
+        
+</code></pre>
+<h3 id="14-字符串排序"><a href="#14-字符串排序" class="headerlink" title="14.字符串排序"></a>14.字符串排序</h3><blockquote>
+<p>给定 n 个字符串，请对 n 个字符串按照字典序排列。</p>
+</blockquote>
+<blockquote>
+<p><strong>输入描述：</strong><br>输入第一行为一个正整数n(1≤n≤1000),下面n行为n个字符串(字符串长度≤100),字符串中只含有大小写字母<br><strong>输出描述：</strong><br>数据输出n行，输出结果为按照字典序排列的字符串</p>
+</blockquote>
+<pre><code>#解法一
+while True:
+    try:
+        num=int(input())
+        stack=[]
+        for i in range(num):
+            stack.append(input())
+        print(&quot;\n&quot;.join(sorted(stack)))
+    except:
+        break
+</code></pre>
+<pre><code>#解法二
+num = input()#num记录输入的词的个数
+num = int(num)
+b = []
+for i in range(num):
+    b.append(input())#用列表b记录所有的输入的词汇
+b.sort()#列表排序，默认为从小到大
+for i in b:
+    print(i)#按要求输出即可
+</code></pre>
+<h3 id="15-求int型正整数在内存中存储时1的个数"><a href="#15-求int型正整数在内存中存储时1的个数" class="headerlink" title="15.求int型正整数在内存中存储时1的个数"></a>15.求int型正整数在内存中存储时1的个数</h3><blockquote>
+<p>输入一个 int 型的正整数，计算出该 int 型数据在内存中存储时 1 的个数。 这个数转换成2进制后，输出1的个数</p>
+</blockquote>
+<pre><code>#解法一
+num = int(input())
+print(bin(num).count(&#39;1&#39;))
+    
+</code></pre>
+<pre><code>#解法二
+num = input().strip()
+num = int(num)
+num_of_one = 0
+while num &gt; 0:
+    if num%2:
+        num_of_one+=1
+    num = num//2
+    
+print(num_of_one)
+</code></pre>
+<h3 id="16-动态规划"><a href="#16-动态规划" class="headerlink" title="16.动态规划"></a>16.动态规划</h3><h4 id="0-1背包问题"><a href="#0-1背包问题" class="headerlink" title="0-1背包问题"></a>0-1背包问题</h4><h3 id="17-坐标移动"><a href="#17-坐标移动" class="headerlink" title="17.坐标移动"></a>17.坐标移动</h3><blockquote>
+<p>开发一个坐标计算工具， A表示向左移动，D表示向右移动，W表示向上移动，S表示向下移动。从（0,0）点开始移动，从输入字符串里面读取一些坐标，并将最终输入结果输出到输出文件里面。</p>
+</blockquote>
+<blockquote>
+<p><strong>输入：</strong><br>①合法坐标为A(或者D或者W或者S) + 数字（两位以内）<br>②坐标之间以;分隔<br>③非法坐标点需要进行丢弃。如AA10;  A1A;  $%$;  YAD; 等</p>
+</blockquote>
+<blockquote>
+<p>下面是一个简单的例子 如：<br>A10;S20;W10;D30;X;A1A;B10A11;;A10;</p>
+</blockquote>
+<pre><code>处理过程：
+
+起点（0,0）
++   A10   =  （-10,0）
++   S20   =  (-10,-20)
++   W10  =  (-10,-10)
++   D30  =  (20,-10)
++   x    =  无效
++   A1A   =  无效
++   B10A11   =  无效
++  一个空 不影响
++   A10  =  (10,-10)
+
+结果 （10， -10）
+</code></pre>
+<pre><code>input_list = input().split(&#39;;&#39;)
+initial = [0,0]
+
+for item in input_list:
+    if not 2 &lt;= len(item) &lt;= 3:
+        continue
+
+    try:
+        direction = item[0]
+        step = int(item[1:])
+        if direction in [&#39;A&#39;, &#39;D&#39;, &#39;W&#39;, &#39;S&#39;]:
+            if 0 &lt;= step &lt;= 99:
+                if direction == &#39;A&#39;:
+                    initial[0] -= step
+                elif direction == &#39;D&#39;:
+                    initial[0] += step
+                elif direction == &#39;S&#39;:
+                    initial[1] -= step
+                elif direction == &#39;W&#39;:
+                    initial[1] += step
+    except:
+        continue
+
+print(str(initial[0]) + &#39;,&#39; + str(initial[1]))
+</code></pre>
+<h3 id="18-识别有效的IP地址和掩码并进行分类统计"><a href="#18-识别有效的IP地址和掩码并进行分类统计" class="headerlink" title="18.识别有效的IP地址和掩码并进行分类统计"></a>18.识别有效的IP地址和掩码并进行分类统计</h3><blockquote>
+<p>所有的IP地址划分为 A,B,C,D,E五类<br>A类地址从1.0.0.0到126.255.255.255;<br>B类地址从128.0.0.0到191.255.255.255;<br>C类地址从192.0.0.0到223.255.255.255;<br>D类地址从224.0.0.0到239.255.255.255；<br>E类地址从240.0.0.0到255.255.255.255</p>
+</blockquote>
+<blockquote>
+<p>私网IP范围是：<br>从10.0.0.0到10.255.255.255<br>从172.16.0.0到172.31.255.255<br>从192.168.0.0到192.168.255.255</p>
+</blockquote>
+<blockquote>
+<p>子网掩码为二进制下前面是连续的1，然后全是0。（例如：255.255.255.32就是一个非法的掩码）<br>（注意二进制下全是1或者全是0均为非法子网掩码）</p>
+</blockquote>
+<blockquote>
+<p>注意：</p>
+<ol>
+<li>类似于【0.<em>.</em>.<em>】和【127.</em>.*.*】的IP地址不属于上述输入的任意一类，也不属于不合法ip地址，计数时请忽略</li>
+<li>私有IP地址和A,B,C,D,E类地址是不冲突的</li>
+</ol>
+</blockquote>
+<blockquote>
+<p> <strong>输入描述：</strong><br> 多行字符串。每行一个IP地址和掩码，用~隔开<br> <strong>输出描述：</strong><br> 统计A、B、C、D、E、错误IP地址或错误掩码、私有IP的个数，之间以空格隔开</p>
+</blockquote>
+<blockquote>
+<p>方法一：通过位运算处理掩码<br>    - 实现思路<br>我们首先通过移位将掩码处理成32位的格式<br>然后排除全0和全1的两种非法情况<br>将掩码逐位右移，合法的情况应该是先读取到的一部分全部是0<br>然后当出现1之后，我们设置flag为1，以此表示0和1的界限<br>如果再遍历的过程中出现0，则说明掩码非法，反之则说明掩码正确</p>
+</blockquote>
+<pre><code>import sys
+
+res = [0,0,0,0,0,0,0]
+
+def puip(ip):
+    if 1 &lt;= ip[0] &lt;= 126:				# A类地址判断条件
+        res[0] += 1
+    elif 128 &lt;= ip[0] &lt;= 191:			# B类地址判断条件
+        res[1] += 1
+    elif 192 &lt;= ip[0] &lt;= 223:			# C类地址判断条件
+        res[2] += 1
+    elif 224 &lt;= ip[0] &lt;= 239:			# D类地址判断条件
+        res[3] += 1
+    elif 240 &lt;= ip[0] &lt;= 255:			# E类地址判断条件
+        res[4] += 1
+    return
+
+def prip(ip):			# 私有IP地址判断条件
+    if (ip[0] == 10) or (ip[0] == 172 and 16 &lt;= ip[1] &lt;= 32) or (ip[0] == 192 and ip[1] == 168):
+        res[6] += 1
+    return
+
+def ym(msk):			# 判断掩码合法性
+    val = (msk[0] &lt;&lt; 24) + (msk[1] &lt;&lt; 16) + (msk[2] &lt;&lt; 8) + msk[3]		# 转换成32位
+    if val == 0:														  # 排除全0的情况
+        return False
+    if (val+1) == (1&lt;&lt;32):												# 排除全1的情况
+        return False
+    flag = 0
+    while(val):
+        digit = val &amp; 1													# 逐位判断
+        if digit == 1:
+            flag = 1
+        if flag == 1 and digit == 0:									# flag=1表示已经不允许再出现0
+            return False
+        val &gt;&gt;= 1
+    return True
+    
+
+def judge(line):
+    ip, msk = line.strip().split(&#39;~&#39;)
+    ips = [int(x) for x in filter(None, ip.split(&#39;.&#39;))]				# 获得表示IP的列表，理论上应该包含四个元素
+    msks = [int(x) for x in filter(None, msk.split(&#39;.&#39;))]			# 获得表示掩码的列表，理论上应该包含四个元素
+    if ips[0] == 0 or ips[0] == 127:								# 排除非法IP不计数
+        return
+    if len(ips) &lt; 4 or len(msks) &lt; 4:								  # 判断错误掩码或错误IP
+        res[5] += 1
+        return
+    if ym(msks) == True:											# 通过掩码判断的可以进行IP判断
+        puip(ips)
+        prip(ips)
+    else:
+        res[5] += 1
+    return
+
+for line in sys.stdin:
+    judge(line)
+# judge(&quot;192.168.0.2~255.255.255.0&quot;)
+
+res = [str(x) for x in res]
+print(&quot; &quot;.join(res))
+</code></pre>
+<blockquote>
+<p>方法二：通过字符串索引处理掩码<br>    - 实现思路<br>我们直接将掩码转换为32位字符串<br>合法掩码规则是全部非0且全部非1，并且连续的1之后只能出现连续的0<br>因此在字符串看来，0和1的分解点的索引是只差1的<br>所以我们从左到右找到第一个0出现的位置，从右到左找到第一个1出现的位置<br>根据两者相差的位置来判断掩码是否合法</p>
+</blockquote>
+<pre><code>import sys
+
+res = [0,0,0,0,0,0,0]
+
+def puip(ip):
+    if 1 &lt;= ip[0] &lt;= 126:				# A类地址判断条件
+        res[0] += 1
+    elif 128 &lt;= ip[0] &lt;= 191:			# B类地址判断条件
+        res[1] += 1
+    elif 192 &lt;= ip[0] &lt;= 223:			# C类地址判断条件
+        res[2] += 1
+    elif 224 &lt;= ip[0] &lt;= 239:			# D类地址判断条件
+        res[3] += 1
+    elif 240 &lt;= ip[0] &lt;= 255:			# E类地址判断条件
+        res[4] += 1
+    return
+
+def prip(ip):			# 私有IP地址判断条件
+    if (ip[0] == 10) or (ip[0] == 172 and 16 &lt;= ip[1] &lt;= 32) or (ip[0] == 192 and ip[1] == 168):
+        res[6] += 1
+    return
+
+def ym(msk):
+    val = (msk[0] &lt;&lt; 24) + (msk[1] &lt;&lt; 16) + (msk[2] &lt;&lt; 8) + msk[3]	# 获取32位的掩码表示
+    s = bin(val)[2:]												  # 去除“0b”字符，并转换成字符串
+    pos0 = s.find(&#39;0&#39;)												  # 从左往右找到0第一次出现的位置 
+    pos1 = s.rfind(&#39;1&#39;)												  # 从右往左找到1第一次出现的位置
+    if pos0 != -1 and pos1 != -1 and pos0 - pos1 == 1:				  # 判断两个位置是否相差1，且是否找不到
+        return True
+    return False
+    
+
+def judge(line):
+    ip, msk = line.strip().split(&#39;~&#39;)
+    ips = [int(x) for x in filter(None, ip.split(&#39;.&#39;))]				# 获得表示IP的列表，理论上应该包含四个元素
+    msks = [int(x) for x in filter(None, msk.split(&#39;.&#39;))]			# 获得表示掩码的列表，理论上应该包含四个元素
+    if ips[0] == 0 or ips[0] == 127:								# 排除非法IP不计数
+        return
+    if len(ips) &lt; 4 or len(msks) &lt; 4:								  # 判断错误掩码或错误IP
+        res[5] += 1
+        return
+    if ym(msks) == True:											# 通过掩码判断的可以进行IP判断
+        puip(ips)
+        prip(ips)
+    else:
+        res[5] += 1
+    return
+
+for line in sys.stdin:
+    judge(line)
+# judge(&quot;192.168.0.2~255.255.255.0&quot;)
+
+res = [str(x) for x in res]
+print(&quot; &quot;.join(res))
+</code></pre>
+<blockquote>
+<p>方法三</p>
+</blockquote>
+<pre><code>import re
+res=[0,0,0,0,0,0,0]
+def toBin(str_list):
+    return &quot;&quot;.join(str(i1) for i1 in [bin(int(i))[2:].rjust(8,&#39;0&#39;) for i in str_list])
+
+def mask_val(mask):
+    mask_str = mask.split(&quot;.&quot;)
+    if &quot;&quot; not in mask_str:
+        mask_bin = toBin(mask_str)
+#         print(mask_bin)
+        if (re.search(&quot;[0][1]&quot;, mask_bin) or &quot;1&quot; not in mask_bin or &quot;0&quot; not in mask_bin):
+            return False
+    return True
+
+try:
+    while True:
+        raw = input().split(&quot;~&quot;)
+        ip = raw[0]
+        mask = raw[1]
+        ip_str = ip.split(&quot;.&quot;)
+#         print(mask_val(mask))
+        if &quot;&quot; not in ip_str:
+            if not(ip.startswith(&quot;127&quot;) or ip.startswith(&quot;0&quot;)):
+                if mask_val(mask):
+                    ip_bin = toBin(ip_str)
+                    #Class A to E
+                    if ip_bin.startswith(&quot;0&quot;):
+    #                     print(ip+&quot;~&quot;+mask)
+                        res[0] += 1
+                    elif ip_bin.startswith(&quot;10&quot;):
+                        res[1] += 1
+                    elif ip_bin.startswith(&quot;110&quot;):
+                        res[2] += 1
+                    elif ip_bin.startswith(&quot;1110&quot;):
+                        res[3] += 1
+                    elif ip_bin.startswith(&quot;1111&quot;):
+                        res[4] += 1
+                    #Private IP
+                    if (ip_str[0]==&quot;10&quot; and 0&lt;=int(ip_str[1])&lt;= 255 and  0&lt;=int(ip_str[2])&lt;=255 and 0&lt;=int(ip_str[3])&lt;=255) or (ip_str[0]==&quot;172&quot; and  16&lt;=int(ip_str[1])&lt;=31 and 0&lt;=int(ip_str[2])&lt;=255 and 0&lt;=int(ip_str[3])&lt;=255) or (ip_str[0]==&quot;192&quot; and ip_str[1] == &quot;168&quot; and 0&lt;=int(ip_str[2])&lt;=255 and 0&lt;=int(ip_str[3])&lt;=255):
+                        res[-1] += 1
+                else:
+                    res[-2] += 1
+        else:
+#             print(ip+&quot;~&quot;+mask)
+            res[-2] += 1
+            
+except EOFError:
+    print(&quot; &quot;.join(str(i) for i in res))
+</code></pre>
+<h3 id="68-成绩排序"><a href="#68-成绩排序" class="headerlink" title="68.成绩排序"></a>68.成绩排序</h3><blockquote>
+<p>给定一些同学的信息（名字，成绩）序列，请你将他们的信息按照成绩从高到低或从低到高的排列,相同成绩都按先录入排列在前的规则处理。</p>
+</blockquote>
+<pre><code>例示：
+jack      70
+peter     96
+Tom       70
+smith     67
+
+从高到低  成绩
+peter     96
+jack      70
+Tom       70
+smith     67
+
+从低到高
+smith     67
+jack      70
+Tom       70
+peter     96
+
+注：0代表从高到低，1代表从低到高
+进阶：时间复杂度：O(nlogn) ，空间复杂度：O(n)
+</code></pre>
+<blockquote>
+<p><strong>输入描述：</strong><br>第一行输入要排序的人的个数n，第二行输入一个整数表示排序的方式，之后n行分别输入他们的名字和成绩，以一个空格隔开<br><strong>输出描述：</strong><br>按照指定方式输出名字和成绩，名字和成绩之间以一个空格隔开</p>
+</blockquote>
+<pre><code>while True:
+    try:
+        n, order = int(input()), int(input())
+        data = [] # 不能用字典保存，因为可能有名字是重复的
+        for _ in range(n):
+            name, score = input().split()
+            data.append((name, int(score)))
+        if order:
+            for i in sorted(data, key=lambda x:x[1]): # 升序
+                print(i[0], i[1])
+        else:
+            for i in sorted(data, key=lambda x:x[1], reverse=True): # 降序
+                print(i[0], i[1])
+    except:
+        break
+</code></pre>
+
+              
+            </div>
+            
+            <footer>
+              
+              
+    <!--    标签分类显示    -->
+                
+  
+  <div class="categories">
+    <a href="/categories/2022-7/">2022-7</a>
+  </div>
+
+                
+  
+  <div class="tags">
+    <a href="/tags/python/">python</a>, <a href="/tags/%E6%95%B0%E5%AD%A6/">数学</a>
+  </div>
+
+    <!--    标签分类显示    -->
+                
+              
+              
+            </footer>
+        </div>
+
+
+
+
+
+
+
+<!--    时间显示    -->
+
+    
+
+<!--    时间显示    -->
+
+
+
+</article>
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  
+<div class="widget tag">
+  <h3 class="title">记录</h3>
+  <ul class="entry">
+       
+      <li>畏而不肆终以德成</li>
+    
+      <li>无畏放欲难于祸已</li>
+    
+  </ul>
+</div>
+
+
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/python/">python</a><small>2</small></li>
+  
+    <li><a href="/tags/%E6%95%B0%E5%AD%A6/">数学</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">归档</h3>
+  
+  
+  
+  <ul class="entry">
+  
+    <li><a href="/categories/2022-7/">2022-7</a><small>1</small></li>
+  
+    <li><a href="/categories/python/">python</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="aligncenter">
+   每天都微小积累会决定最终结果，这就是答案
+</div>
+<div class="clearfix"></div>
+
+
+
+</footer>
+  
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/js/gallery.js"></script>
+
+
+
+
+
+</body>
+</html>
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?c9247c4f7259c953ec192ff1f8347fc7";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+
